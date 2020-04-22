@@ -1,0 +1,18 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background: powderblue;
+}
+.title{
+	color: #fff;
+}
+.bg{
+	width: 80%;
+	height: 70%;
+	margin: 0 auto;
+	background-image: url(img/3f2d3570ca1b1e7b107284b91c771ba5.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+

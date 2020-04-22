@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wth-main" style="width: 100%;margin:0 auto; margin-top:40px;overflow: hidden;">
+         	<span class="btn_export_img_span" style="margin-right: 50px" >导出档案图片</span>
+		</div>
+		
+		<input type="text" name="" id="input" value="xxx" />
+		<button id="buttonA">A</button>
+		<button id="buttonB">B</button>
+		<script src="../js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+ 
+    <!--
+    	<script src="http://stuk.github.io/jszip/dist/jszip.js"></script>
+    <script type="text/javascript" src="http://stuk.github.io/jszip-utils/dist/jszip-utils.js"></script>
+    <script type="text/javascript" src="http://stuk.github.io/jszip-utils/dist/jszip-utils-ie.js"></script>
+	<script src="http://stuk.github.io/jszip/vendor/FileSaver.js"></script>
+	<script src="./js/my.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="./jszip/jszip.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./jszip/FileSaver.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./jszip/jszip-utils.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./jszip/jszip-utils-ie.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="./js/my.js" type="text/javascript" charset="utf-8"></script>-->
+		
+		<script src="./download-img-zip.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			var input = $("#input");
+			var timeA = 0, timeB = 0;
+			$("#buttonA").on("click", function(){
+				
+				setTimeout(function(){
+					timeA = new Date().getTime();
+					if(timeB == 0){
+						timeA = 0;
+						input.val("buttonA");
+						console.log('渲染buttonA的内容')						
+					}else{
+						console.log("没有渲染buttonA")
+					}
+				},4000)
+			});
+			$("#buttonB").on("click", function(){
+				setTimeout(function(){
+					timeB = new Date().getTime();
+					if(timeA == 0){
+						timeB = 0;
+						input.val("buttonB");
+						console.log('渲染buttonB的内容')			
+					}else{
+						console.log('没有渲染buttonB')	
+					}
+				},2000)
+			});
+			//下载zip
+			$.getJSON("./images.json").done(res => {
+//				DownloadImgZip.init({meatData: res.img, name: "imgs"})
+			});
+//			//分批次下载图片
+//			var btn = document.getElementById('#button');
+//			$.getJSON("./images.json", function(res){
+//				var list = res.img;
+//				var num = 0;
+//				var data = [];
+//				var timer = setInterval(function(){
+//					data = list.slice(num, num + 10);
+//					if(data.length == 0) {
+//						clearInterval(timer);
+//						return;
+//					}else{
+////						dwonloadImg(data);
+//					}
+//					num += 10;
+//					if(num > list.length){
+//						clearInterval(timer)
+//					}
+//				},2000)
+//			});
+//			function dwonloadImg (data) {
+//				for(var i = 0; i < data.length; i++){
+//					var a = document.createElement("a");
+//					a.setAttribute("download", data[i].split("/")[2].split(".")[0]);
+//					a.setAttribute("href",data[i]);
+//					a.click();
+//					document.querySelector("body").appendChild(a);
+//				}
+//				
+//			}
+			//end
+		</script>
+	</body>
+</html>

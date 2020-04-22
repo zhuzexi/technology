@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				-moz-user-select: none;
+			}
+			
+			html,
+			body,
+			.wrapper {
+				/*height: 100%;*/
+				overflow: hidden;
+			}
+			
+			.header {
+				width: 100%;
+				height: 80px;
+				background: red;
+			}
+			
+			.sider {
+				width: 100px;
+				height: calc(100% - 80px);
+				background: yellow;
+				float: left;
+			}
+			
+			.content {
+				width: calc(100% - 100px);
+				height: calc(100% - 80px);
+				float: right;
+				padding: 20px;
+				overflow-y: scroll;
+			}
+			
+			.main {
+				width: 100%;
+				height: 1000px;
+				background: yellowgreen;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div id="chart-panel"></div>
+			<button id="download">下载该图片</button>
+		</div> 
+		<script src="../js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="./data-1514871882607-r1XU35_Xz.js"></script>
+		<script src="./data-1514871918553-HJvdn5uQM.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./dwonload-svg.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			var salesData = [{
+					label: "Basic",
+					color: "#2f7ed8"
+				}, {
+					label: "Plus",
+					color: "#0d233a"
+				}, {
+					label: "Lite",
+					color: "#8bbc21"
+				}, {
+					label: "Elite",
+					color: "#910000"
+				}, {
+					label: "Delux",
+					color: "#1aadce"
+				},
+
+				{
+					label: "aa",
+					color: "red"
+				}, {
+					label: "bb",
+					color: "yellow"
+				}, {
+					label: "cc",
+					color: "#7a17e4"
+				}, {
+					label: "dd",
+					color: "#08f388"
+				}, {
+					label: "ff",
+					color: "#08f388"
+				}
+			];
+			var width = 400,
+				height = 500;
+			var svg = d3.select("#chart-panel")
+				.append("svg")
+				.attr("preserveAspectEatio", "xMidYMid meet")
+				.attr("viewBox", "0 0 400 400")
+				.attr("width", width)
+				.attr("height", height)
+				.style("position", "relative")
+				.style("top", "-20")
+				.style("left", "10%")
+				.style("font-weight", "bold")
+				.append("g")
+				.attr("id", "circleDonut");
+			Donut3D.draw("circleDonut", randomData(), 150, 150, 130, 100, 30, 0);
+
+			function randomData() {
+				return salesData.map(function(d) {
+					return {
+						label: d.label,
+						value: 1000 * Math.random().toFixed(0) + 1000,
+						color: d.color
+					};
+				});
+			}
+			//下载svg
+			$("#download").on("click",function(){
+				var svg = document.querySelector('svg');
+				svgToPng.init(svg);
+				svgToPng.download('3dpie');
+			});
+			
+			
+		</script>
+		
+	</body>
+
+</html>

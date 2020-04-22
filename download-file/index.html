@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="download">点击下载文件</button>
+		<script src="./download-file.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			document.getElementById("download").onclick = function () {
+				var str = "hello world可以中文吗？答案：可以的";
+				download(str, "Text.txt", "text/plain");
+			}
+		</script>
+	</body>
+</html>

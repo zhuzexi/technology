@@ -1,0 +1,33 @@
+<template>
+	<link rel="stylesheet" type="text/css" href="./index.css"/>
+	<div class="model">
+		这是一个模块
+	</div>
+</template>
+<script type="text/javascript">
+	(function(){
+		var element = Object.create(HTMLElement.prototype);
+		var template = document.currentScript.ownerDocument.querySelector("template");
+		var content = template.content;
+		var clone = document.importNode(content, true);//将template的内容克隆出来
+		var titleElem = clone.querySelector('.model');//内容
+		element.createdCallback = function(){
+			var shadowRoot = this.createShadowRoot();//创建一个影子节点，虚拟Dom
+			var callback = this.getAttribute('data-callback');//设置事件
+			shadowRoot.addEventListener('click', function() {
+		        (new Function('zzxCallBack()'))();
+		        //new Function()触发函数，参数为一个字符串
+		        //new Function("id","zzxCallBack(id)")(id);//传递参数
+		    });
+			shadowRoot.appendChild(clone);//将克隆的节点添加到虚拟dom中
+		};
+		element.attributeChangedCallback = function () {//当元素属性被改变时触发该函数
+			titleElem.textContent = this.getAttribute('data-num');
+		}
+		
+		document.registerElement("zzx-module", {
+			prototype: element
+		});
+		
+	})()
+</script>

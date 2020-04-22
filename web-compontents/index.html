@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="import" href="module.html"/>
+		<style type="text/css">
+			a{
+				display: block;
+				width: 10px;
+				height: 20px;
+				margin: 10px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<zzx-module 
+			data-num="1111" 
+			data-callback="zzxCallBack()"
+		></zzx-module>
+		
+		<button id="button">点一下</button>
+		<script type="text/javascript">
+			function zzxCallBack () {
+				var dom = document.querySelector("zzx-module");
+				dom.dataset.num = 33333333; 
+			}
+			
+			var btn = document.getElementById("button");
+			btn.addEventListener("click", function(){
+				var dom = document.querySelector("zzx-module");
+				dom.dataset.num = '2222'
+			});
+		</script>
+	</body>
+</html>

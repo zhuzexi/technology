@@ -1,0 +1,27 @@
+{
+	"title": "buttonA"
+}
+
+[ 
+	{
+		title: "东区",
+		subTitle: [
+			{title: "进京非访",subtitle: [{title: "批次",prop: "ff_pc"},{title: "人次", prop: "ff_rc"}]},
+			{title: "进京越级访",subtitle: [{title: "批次",prop: "yj_pc"},{title: "人次", prop: "yj_rc"}]},
+			{title: "进京正常访",subtitle: [{title: "批次",prop: "pc"},{title: "人次", prop: "rc"}]},
+			{title: "总计",subtitle: [{title: "批次",prop: "zj_pc"},{title: "人次", prop: "zj_rc"}]}
+		]
+	}
+]
+
+[{
+	ff_pc: "进京非访批次",
+	ff_rc: "进京非访人次",
+	ff_pc: "进京越级访批次",
+	ff_rc: "进京越级访人次",
+	ff_pc: "进京正常访批次",
+	ff_rc: "进京正常访人次",
+	ff_pc: "总计批次",
+	ff_rc: "总计人次",
+	month: "1月"
+}]

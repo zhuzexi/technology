@@ -1,0 +1,91 @@
+/*
+* 交错动画css,中间往两边扩散
+* 
+*/
+.interlock-center {
+	position: relative;
+	display: flex;
+	color: #6ee1f5;
+	font-size: 2em;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	white-space: pre;
+}
+
+.interlock-center span {
+	opacity: 0;
+	transform: scale(0);
+	animation: fadeIn 2.4s forwards;
+}
+
+.interlock-center::after,
+.interlock-center::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	height: 100%;
+	background: white;
+	opacity: 0;
+	transform: scale(0);
+}
+
+.interlock-center::before {
+	left: 50%;
+	animation: slideLeft 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+
+.interlock-center::after {
+	right: 50%;
+	animation: slideRight 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes slideLeft {
+	to {
+		left: -6%;
+		opacity: 1;
+		transform: scale(0.9);
+	}
+}
+
+@keyframes slideRight {
+	to {
+		right: -6%;
+		opacity: 1;
+		transform: scale(0.9);
+	}
+}
+/*
+* 交错动画css,从左到右
+* 
+*/
+.interlock-left {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.8;
+  color: white;
+  white-space: pre;
+}
+.interlock-left span{
+    animation: landIn 0.8s ease-out both;
+}
+
+@keyframes landIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

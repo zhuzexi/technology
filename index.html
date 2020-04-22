@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="mobile"></p>
+		<script src="lib/test-idcard.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var num = "522526199610061050";
+			var test = idCardNoUtil.checkIdCardNo(num);
+//			console.log(test)
+		</script>
+		<!--lib util.js下存放的是一些方法或函数或是技巧-->
+	<pre>
+		<h1>3D饼图 -- 可以下载svg</h1>
+		<a href="3d-pie/3dpie-downloadSvg.html">demo</a>
+		<h1>使用node.js爬取百度地图瓦片数据</h1>
+		<a href="node-bmap/bmap.html">demo</a>
+		<h1>web-compontents 新一代的web模块化方式</h1>
+		<a href="web-compontents/index.html">demo</a>
+		<h1>jszip下载压缩包</h1>
+		<a href="download-img/img.html">demo</a>
+		<h1>下载文件</h1>
+		<a href="download-file/index.html">demo</a>
+	</pre>
+	
+	<script type="text/javascript">
+		function _isMobile() {
+	 		let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+	 		console.log(flag)
+			return flag;
+		}
+		if (this._isMobile()) {
+	      alert("手机端");
+	    } else {
+	      alert("pc端");
+	    }
+	</script>
+	</body>
+</html>

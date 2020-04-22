@@ -1,0 +1,9 @@
+.model{
+	width: 200px;
+	height: 300px;
+	margin: 0 auto;
+	background: red;
+	color: #fff;
+	font-size: 50px;
+	text-align: center;
+}

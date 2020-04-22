@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<style type="text/css">
+			body{
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				background: #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="interlockCenter">sword art online</div>
+		<div id="interlockLeft">Ano hi watashitachi mada shiranai no Fushigi no monogatari desu.</div>
+		<script src="css-effects.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			let dom = document.getElementById("interlockCenter");
+			cssEffects.interlockCenter(dom);
+			
+			let dom1 = document.getElementById("interlockLeft");
+			cssEffects.interlockLeft(dom1);
+		</script>
+	</body>
+</html>

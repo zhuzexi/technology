@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.tableJson {
+				margin: 0 auto;
+				margin-top: 100px;
+				width: 90%;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			
+			.tableJson tr,
+			.tableJson th,
+			.tableJson td {
+				border: 1px solid #44cece;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<table class="tableJson" border="1" cellspacing="" cellpadding="">
+			<tr>
+				<th>A</th>
+				<th>B</th>
+				<th>C</th>
+				<th>D</th>
+				<th>E</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+		</table>
+		<button id="button">下载</button>
+		
+		
+		<script src="../js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./dist/xlsx.core.min.js"></script>
+		<script src="./dist/xlsx.full.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			document.getElementById("button").onclick = function(){
+				var table = XLSX.utils.table_to_sheet($('.tableJson')[0]);
+				console.log(table)
+			}
+		</script>
+	</body>
+</html>
